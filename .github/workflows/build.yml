@@ -58,6 +58,8 @@ jobs:
             dist/*portable.7z
           body_path: changelog.md
           token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: mihomo-party-${{ matrix.arch }}
+  
 
   linux:
     strategy:
