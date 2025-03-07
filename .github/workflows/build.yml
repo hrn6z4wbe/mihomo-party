@@ -99,7 +99,6 @@ jobs:
             dist/*.rpm
           if-no-files-found: error
       - name: Publish Release
-        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
           files: |
@@ -107,4 +106,6 @@ jobs:
             dist/*.deb
             dist/*.rpm
           body_path: changelog.md
+          tag_name: Release-${{ matrix.arch }}
+          name: Release-${{ matrix.arch }}
           token: ${{ secrets.GITHUB_TOKEN }}
